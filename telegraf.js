@@ -99,9 +99,11 @@ class Telegraf extends Composer {
 
   launch (config = {}) {
     debug('Connecting to Telegram')
+    console.log('Connecting to Telegram')
     return this.telegram.getMe()
       .then((botInfo) => {
         debug(`Launching @${botInfo.username}`)
+        console.log(`Launching @${botInfo.username}`)
         this.options.username = botInfo.username
         this.context.botInfo = botInfo
         if (!config.webhook) {
